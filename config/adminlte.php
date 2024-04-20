@@ -14,8 +14,8 @@ return [
     |
     */
 
-    'title' => 'Sigme',
-    'title_prefix' => 'Sigme - ',
+    'title' => 'SIGME',
+    'title_prefix' => 'SIGME - ',
     'title_postfix' => '',
 
     /*
@@ -324,7 +324,7 @@ return [
         ],
         [
             'text' => 'Comunicaciones',
-            'url' => 'comunicacion',
+            'url' => 'comunicaciones',
             'icon' => 'fas fa-fw fa-comment',
         ],
         [
@@ -348,11 +348,6 @@ return [
             'text' => 'Clientes',
             'url' => 'clientes',
             'icon' => 'fas fa-fw fa-id-card',
-        ],
-        [
-            'text' => 'Medidas',
-            'url' => 'medidas',
-            'icon' => 'fas fa-fw fa-signal',
         ],
         [
             'text' => 'Contraseña',
@@ -397,21 +392,21 @@ return [
 
     'plugins' => [
         'Datatables' => [
-            'active' => false,
+            'active' => true,
             'files' => [
                 [
                     'type' => 'js',
-                    'asset' => false,
+                    'asset' => true,
                     'location' => '//cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js',
                 ],
                 [
                     'type' => 'js',
-                    'asset' => false,
+                    'asset' => true,
                     'location' => '//cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js',
                 ],
                 [
                     'type' => 'css',
-                    'asset' => false,
+                    'asset' => true,
                     'location' => '//cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css',
                 ],
             ],
