@@ -314,8 +314,30 @@ return [
         ],
         [
             'text' => 'Ventas',
-            'url' => 'ventas',
             'icon' => 'fas fa-fw fa-handshake',
+            'submenu' => [
+                    [
+                        'text' => 'Consolidado',
+                        'url' => 'ventas',
+                        'icon' => 'fas fa-fw fa-handshake',
+                    ],
+                    [
+                        'text' => 'Venta Stands',
+                        'url' => 'ventas_stands',
+                    ],
+                    [
+                        'text' => 'Venta Material POP',
+                        'url' => 'ventas_pop',
+                    ],
+                    [
+                        'text' => 'Venta Branding',
+                        'url' => 'ventas_branding',
+                    ],
+                    [
+                        'text' => 'Venta Paquetes',
+                        'url' => 'ventas_paquetes',
+                    ],
+            ],
         ],
         [
             'text' => 'Tesorería',
@@ -351,7 +373,7 @@ return [
         ],
         [
             'text' => 'Contraseña',
-            'url' => 'admin/settings',
+            'url' => 'contrasena',
             'icon' => 'fas fa-fw fa-lock',
         ],
     ],

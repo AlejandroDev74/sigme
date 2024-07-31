@@ -4,11 +4,12 @@ namespace App\Http\Controllers;
 
 use App\Models\Ventas;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class VentasController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Método para ingresar al View Ventas
      */
     public function ventas()
     {
@@ -16,50 +17,45 @@ class VentasController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
+     * Método para ingresar al View Ventas Stand
      */
-    public function create()
-    {
-        //
+    public function ventas_stands(){
+
+        $data = DB::table('clientes')->get();
+
+        return view('ventas_stands', ['data' => $data]);
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Método para ingresar al View Ventas POP
      */
-    public function store(Request $request)
+    public function ventas_pop()
     {
-        //
+        $data = DB::table('clientes')->get();
+        $data2 = DB::table('productos_pop')->get();
+        $data3 = DB::table('ventas_pop')->get();
+
+        return view('ventas_pop', ['data' => $data, 'data2' => $data2, 'data3' => $data3]);
     }
 
     /**
-     * Display the specified resource.
+     * Método para ingresar al View Ventas Branding
      */
-    public function show(Ventas $ventas)
+    public function ventas_branding()
     {
-        //
+        $data = DB::table('clientes')->get();
+
+        return view('ventas_branding', ['data' => $data]);
     }
 
-    /**
-     * Show the form for editing the specified resource.
+     /**
+     * Método para ingresar al View Ventas POP
      */
-    public function edit(Ventas $ventas)
+    public function ventas_paquetes()
     {
-        //
+        $data = DB::table('clientes')->get();
+
+        return view('ventas_paquetes', ['data' => $data]);
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, Ventas $ventas)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(Ventas $ventas)
-    {
-        //
-    }
 }

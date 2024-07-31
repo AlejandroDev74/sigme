@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'Ventas')
+@section('title', 'Paquetes')
 
 @section('content')
 <div class="container">

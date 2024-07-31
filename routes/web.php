@@ -47,3 +47,7 @@ Route::get('/usuarios', [App\Http\Controllers\UsuariosController::class, 'usuari
 
 // Redireccionamiento del módulo de Ventas
 Route::get('/ventas', [App\Http\Controllers\VentasController::class, 'ventas'])->name('ventas');
+Route::get('/ventas_stands', [App\Http\Controllers\VentasController::class, 'ventas_stands'])->name('ventas_stands');
+Route::get('/ventas_pop', [App\Http\Controllers\VentasController::class, 'ventas_pop'])->name('ventas_pop');
+Route::get('/ventas_branding', [App\Http\Controllers\VentasController::class, 'ventas_branding'])->name('ventas_branding');
+Route::get('/ventas_paquetes', [App\Http\Controllers\VentasController::class, 'ventas_paquetes'])->name('ventas_paquetes');

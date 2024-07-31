@@ -71,6 +71,78 @@
         </div>
     </div>
 
+     <!-- MODAL VISUALIZACIÓN DE CLIENTES -->
+
+ <form action="visualizar_cliente" method="post">
+    @csrf
+
+    <div class="modal fade" id="visualizacion" tabindex="-1" role="dialog" aria-labelledby="estadoLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title" id="estadoLabel">Datos del Cliente</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body">
+       
+        <div class="input-group mb-3">
+            Id:
+                <div class="input-group">
+               
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="fas fa-key"></i></span>
+                    </div>
+                    <input type="text" class="form-control" id="id0" name="id0" readonly>
+                </div>
+                </div>
+
+            <div class="input-group mb-3">
+                Documento del Cliente: 
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="fas fa-id-card"></i></span>
+                    </div>
+                    <input type="text" class="form-control" id="documento0" name="documento0" readonly>
+                </div>
+                </div>
+
+            <div class="input-group mb-3">
+                Nombre del Cliente: 
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="fas fa-user"></i></span>
+                    </div>
+                    <input type="text" class="form-control" id="nombre0" name="nombre0" readonly>
+                </div>
+                </div>
+
+                <div class="input-group mb-3">
+                    Correo electrónico: 
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="fas fa-at"></i></span>
+                    </div>
+                    <input type="email" class="form-control" id="correo0" name="correo0" readonly>
+                </div>
+                </div>
+
+                <div class="input-group mb-3">
+                    Teléfono: 
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="fas fa-phone"></i></span>
+                    </div>
+                    <input type="number" class="form-control" id="telefono0" name="telefono0" readonly>
+                </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    </div>
+    </form>
 
     <!-- MODAL EDICIÓN DE CLIENTES -->
     <form action="actualizar_cliente" method="post">
@@ -301,6 +373,11 @@
                     <td>{{ $d->cli_nombre }}</td>
                     <td class="d-none d-sm-block">{{ $d->cli_correo }}</td>
                     <td>
+                        <button type="button" class="btn btn-primary bg-green" data-toggle="modal" data-target="#visualizacion" title="Visualizar" id="visualizar"
+                        data-id0="{{ $d->cli_id }}" data-documento0="{{ $d->cli_documento }}" data-nombre0="{{ $d->cli_nombre }}" data-correo0="{{ $d->cli_correo }}" data-telefono0="{{ $d->cli_telefono }}">
+                            <span class="fas fa-eye"></span>
+                        </button>
+
                         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#edicion" title="Editar" id="editar"
                         data-id="{{ $d->cli_id }}" data-documento="{{ $d->cli_documento }}" data-nombre="{{ $d->cli_nombre }}" data-correo="{{ $d->cli_correo }}" data-telefono="{{ $d->cli_telefono }}">
                             <span class="fas fa-edit"></span>
@@ -353,6 +430,20 @@
                 "previous": "Anterior"
             }
         }
+        });
+
+        $(document).on("click", "#visualizar", function() {
+            var id0 = $(this).data('id0');
+            var documento0 = $(this).data('documento0');
+            var nombre0 = $(this).data('nombre0');
+            var correo0 = $(this).data('correo0');
+            var telefono0 = $(this).data('telefono0');
+
+            $("#id0").val(id0);
+            $("#documento0").val(documento0);
+            $("#nombre0").val(nombre0);
+            $("#correo0").val(correo0);
+            $("#telefono0").val(telefono0);
         });
 
         $(document).on("click", "#editar", function() {

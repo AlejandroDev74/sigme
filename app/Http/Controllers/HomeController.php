@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class HomeController extends Controller
 {
@@ -17,12 +18,15 @@ class HomeController extends Controller
     }
 
     /**
-     * Show the application dashboard.
-     *
-     * @return \Illuminate\Contracts\Support\Renderable
+     * Método para ingresar al View Principal
      */
     public function index()
     {
-        return view('home');
+        $data = DB::table('clientes')->count();
+        $data1 = DB::table('users')->count();
+        $data2 = DB::table('ventas')->count();
+
+        return view('home', ['data' => $data, 'data1' => $data1, 'data2' => $data2]);
     }
+    
 }
